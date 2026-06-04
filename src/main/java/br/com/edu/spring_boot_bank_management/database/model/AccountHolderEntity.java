@@ -24,6 +24,4 @@ public class AccountHolderEntity {
     @Column(nullable = false, unique = true)
     private String CPF;
 
-
-
 }
