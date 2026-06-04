@@ -25,6 +25,6 @@ public class AccountEntity {
     private AccountType accountType;
 
     @OneToOne
-    @JoinColumn(name = "acount_holder_id")
+    @JoinColumn(name = "account_holder_id")
     private AccountHolderEntity accountHolder;
 }
