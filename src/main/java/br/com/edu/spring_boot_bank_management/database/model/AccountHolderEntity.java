@@ -16,6 +16,7 @@ public class AccountHolderEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "account_holder_id")
     private Integer id;
 
     @Column(nullable = false)

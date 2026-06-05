@@ -19,9 +19,11 @@ public class AccountEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(nullable = false)
     private BigDecimal balance;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private AccountType accountType;
 
     @OneToOne
