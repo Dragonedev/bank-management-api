@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AccountService {
 
-    private IAccountRepository accountRepository;
+    private final IAccountRepository accountRepository;
 
     public void createAccount(AccountDto accountDto){
         AccountEntity account = AccountEntity.builder()

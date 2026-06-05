@@ -1,0 +1,21 @@
+package br.com.edu.spring_boot_bank_management.controller;
+
+import br.com.edu.spring_boot_bank_management.dto.AccountDto;
+import br.com.edu.spring_boot_bank_management.service.AccountService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/v1/account")
+public class AccountController {
+
+    private final AccountService accountService;
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createAccount(@RequestBody AccountDto accountDto){
+        accountService.createAccount(accountDto);
+    }
+}
