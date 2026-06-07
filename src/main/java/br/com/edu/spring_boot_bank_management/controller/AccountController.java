@@ -1,7 +1,9 @@
 package br.com.edu.spring_boot_bank_management.controller;
 
 import br.com.edu.spring_boot_bank_management.dto.AccountDto;
+import br.com.edu.spring_boot_bank_management.exception.NotFoundException;
 import br.com.edu.spring_boot_bank_management.service.AccountService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +17,7 @@ public class AccountController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAccount(@RequestBody AccountDto accountDto){
+    public void createAccount(@Valid @RequestBody AccountDto accountDto){
         accountService.createAccount(accountDto);
     }
 }
