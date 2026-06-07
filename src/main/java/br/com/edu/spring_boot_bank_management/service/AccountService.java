@@ -8,6 +8,7 @@ import br.com.edu.spring_boot_bank_management.dto.AccountDto;
 import br.com.edu.spring_boot_bank_management.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +16,7 @@ public class AccountService {
 
     private final IAccountRepository accountRepository;
     private final IAccountHolderRepository accountHolderRepository;
-
+    
     public void createAccount(AccountDto accountDto){
 
         AccountHolderEntity accountHolder = accountHolderRepository.findById(accountDto.getAccountHolderId())

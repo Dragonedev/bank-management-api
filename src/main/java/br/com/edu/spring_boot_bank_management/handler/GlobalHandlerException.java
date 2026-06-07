@@ -1,5 +1,6 @@
 package br.com.edu.spring_boot_bank_management.handler;
 
+import br.com.edu.spring_boot_bank_management.exception.BadRequestException;
 import br.com.edu.spring_boot_bank_management.exception.ErrorResponse;
 import br.com.edu.spring_boot_bank_management.exception.NotFoundException;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -19,6 +20,26 @@ public class GlobalHandlerException {
                 .build();
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<ErrorResponse> handlerBadRequestException(BadRequestException ex){
+        ErrorResponse response = ErrorResponse.builder()
+                .message(ex.getMessage())
+                .status(HttpStatus.BAD_REQUEST.value())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handlerException(Exception ex){
+        ErrorResponse response = ErrorResponse.builder()
+                .message(ex.getMessage())
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 
 }
