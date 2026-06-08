@@ -23,6 +23,6 @@ public class ContactsEntity {
     private String phoneNumber;
 
     @OneToOne
-    @JoinColumn(name = "account_holder_id")
+    @JoinColumn(name = "account_holder_id", nullable = false, unique = true)
     private AccountHolderEntity accountHolder;
 }

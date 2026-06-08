@@ -16,7 +16,7 @@ public class AccountService {
 
     private final IAccountRepository accountRepository;
     private final IAccountHolderRepository accountHolderRepository;
-    
+
     public void createAccount(AccountDto accountDto){
 
         AccountHolderEntity accountHolder = accountHolderRepository.findById(accountDto.getAccountHolderId())

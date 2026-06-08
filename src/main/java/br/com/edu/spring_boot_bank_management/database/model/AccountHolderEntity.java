@@ -25,4 +25,7 @@ public class AccountHolderEntity {
     @Column(nullable = false, unique = true)
     private String CPF;
 
+    @OneToOne(mappedBy = "accountHolder", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ContactsEntity contact;
+
 }
