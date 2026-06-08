@@ -8,11 +8,12 @@ import lombok.*;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountHolderDto {
 
     private String name;
     private String CPF;
+
+    private ContactsDto contact;
 }
