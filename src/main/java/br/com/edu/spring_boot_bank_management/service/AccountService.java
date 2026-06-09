@@ -20,7 +20,7 @@ public class AccountService {
     public void createAccount(AccountDto accountDto){
 
         AccountHolderEntity accountHolder = accountHolderRepository.findById(accountDto.getAccountHolderId())
-                .orElseThrow(() ->  new NotFoundException("Holder não cadastrado"));
+                .orElseThrow(() ->  new NotFoundException("Holder not found"));
 
         AccountEntity account = AccountEntity.builder()
                 .balance(accountDto.getBalance())
@@ -29,5 +29,15 @@ public class AccountService {
         .build();
 
         accountRepository.save(account);
+    }
+
+    @Transactional
+    public void deleteAccount(Integer accountId){
+
+        AccountEntity account = accountRepository.findById(accountId)
+                .orElseThrow(() -> new NotFoundException("Account not found"));
+
+        accountRepository.delete(account);
+
     }
 }

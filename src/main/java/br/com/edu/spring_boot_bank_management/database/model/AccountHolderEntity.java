@@ -3,6 +3,8 @@ package br.com.edu.spring_boot_bank_management.database.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "account_holder")
@@ -27,5 +29,8 @@ public class AccountHolderEntity {
 
     @OneToOne(mappedBy = "accountHolder", cascade = CascadeType.ALL, orphanRemoval = true)
     private ContactsEntity contact;
+
+    @OneToMany(mappedBy = "accountHolder")
+    private List<AccountEntity> accounts;
 
 }
