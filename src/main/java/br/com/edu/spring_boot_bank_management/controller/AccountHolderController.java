@@ -18,4 +18,11 @@ public class AccountHolderController {
     public void createAccountHolder(@RequestBody AccountHolderDto accountHolderDto){
         accountHolderService.createAccountHolder(accountHolderDto);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteAccountHolder(@PathVariable Integer id){
+        accountHolderService.deleteAccountHolder(id);
+    }
+
 }

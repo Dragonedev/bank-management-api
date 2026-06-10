@@ -20,4 +20,10 @@ public class AccountController {
     public void createAccount(@Valid @RequestBody AccountDto accountDto){
         accountService.createAccount(accountDto);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteAccountHolder(@PathVariable Integer id){
+        accountService.deleteAccount(id);
+    }
 }
